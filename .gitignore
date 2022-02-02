@@ -2,3 +2,4 @@
 venv/
 main.py
 used_images.json
+logs.log
