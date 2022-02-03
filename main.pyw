@@ -25,10 +25,10 @@ async def upload_image():
     logger.info('Loaded json')
 
     available_images = [
-        os.path.join(path_base,f)
+        os.path.join(path_base, f)
         for f in os.listdir(path_base)
-        if os.path.isfile(os.path.join(path_base,f))
-        and f not in used_images
+        if os.path.isfile(os.path.join(path_base, f))
+        and os.path.join(path_base, f) not in used_images
     ]
     if len(available_images) == 0:
         raise ValueError('No More Pictures Left')
@@ -55,4 +55,3 @@ async def upload_image():
     logger.info(f'Deleted post: {owner_id=} {post_id=}')
 
 asyncio.get_event_loop().run_until_complete(upload_image())
-
